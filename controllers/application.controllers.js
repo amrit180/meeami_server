@@ -23,4 +23,15 @@ module.exports = {
       res.json({ error: error.message, success: false });
     }
   },
+  get_meta_data: async (req, res) => {
+    try {
+      const result = await applicationService.getMetaDocument(req);
+      res.json({
+        data: result.data(),
+        success: true,
+      });
+    } catch (error) {
+      res.json({ error: error.message, success: false });
+    }
+  },
 };
