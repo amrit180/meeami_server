@@ -1,25 +1,11 @@
-const admin = require("../firebase");
-
 const getDocumentData = async (req) => {
-  const result = await admin
-    .firestore()
-    .collection("pages")
-    .doc(req.body.slug)
-    .collection("divs")
-    .get();
-  return result;
+  return require(`../jsons/document/${req.body.slug}.json`);
 };
 const getDemosDocument = async () => {
-  const result = await admin.firestore().collection("demos").get();
-  return result;
+  return require(`../jsons/demos/demos.json`);
 };
 const getMetaDocument = async (req) => {
-  const result = await admin
-    .firestore()
-    .collection("pages")
-    .doc(req.body.slug)
-    .get();
-  return result;
+  return require(`../jsons/metadata/${req.body.slug}.json`);
 };
 
 module.exports = {

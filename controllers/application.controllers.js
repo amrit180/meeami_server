@@ -4,10 +4,7 @@ module.exports = {
   get_documents_by_id: async (req, res) => {
     try {
       const result = await applicationService.getDocumentData(req);
-      res.json({
-        data: result.docs.map((v) => ({ ...v.data() })),
-        success: true,
-      });
+      res.json(result);
     } catch (error) {
       res.json({ error: error.message, success: false });
     }
@@ -15,10 +12,7 @@ module.exports = {
   get_demos: async (req, res) => {
     try {
       const result = await applicationService.getDemosDocument();
-      res.json({
-        data: result.docs.map((v) => ({ ...v.data() })),
-        success: true,
-      });
+      res.json(result);
     } catch (error) {
       res.json({ error: error.message, success: false });
     }
@@ -26,10 +20,7 @@ module.exports = {
   get_meta_data: async (req, res) => {
     try {
       const result = await applicationService.getMetaDocument(req);
-      res.json({
-        data: result.data(),
-        success: true,
-      });
+      res.json(result);
     } catch (error) {
       res.json({ error: error.message, success: false });
     }
